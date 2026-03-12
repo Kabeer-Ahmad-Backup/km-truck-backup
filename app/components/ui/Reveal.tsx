@@ -8,9 +8,11 @@ interface Props {
   style?: React.CSSProperties;
   delay?: number; // ms
   type?: "up" | "left" | "right" | "scale";
+  duration?: number; // s, default 0.6
+  rootMargin?: string; // trigger earlier/later
 }
 
-export default function Reveal({ children, className = "", style = {}, delay = 0, type = "up" }: Props) {
+export default function Reveal({ children, className = "", style = {}, delay = 0, type = "up", duration = 0.6, rootMargin = "0px" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export default function Reveal({ children, className = "", style = {}, delay = 0
     
     // Set initial state
     el.style.opacity = "0";
-    el.style.transition = `all 0.6s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`;
+    el.style.transition = `all ${duration}s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`;
     
     if (type === "up") el.style.transform = "translateY(40px)";
     else if (type === "left") el.style.transform = "translateX(-40px)";
@@ -38,12 +40,12 @@ export default function Reveal({ children, className = "", style = {}, delay = 0
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.08, rootMargin }
     );
     
     observer.observe(el);
     return () => observer.disconnect();
-  }, [delay, type]);
+  }, [delay, type, duration, rootMargin]);
 
   return (
     <div ref={ref} className={className} style={{ ...style, willChange: "transform, opacity" }}>

@@ -9,12 +9,15 @@ import Reveal from "@/app/components/ui/Reveal";
 interface FAQItem { question: string; answer: string; }
 interface ServiceLink { label: string; href: string; }
 
+interface ExtraSection { title: string; items: string[]; }
+
 interface ServicePageTemplateProps {
   title: string;
   heroSubtitle: string;
   bodyIntro: string;
   features: string[];
   bodyContent?: string;
+  extraSections?: ExtraSection[];
   faqItems: FAQItem[];
   relatedServices?: ServiceLink[];
   icon?: React.ReactNode;
@@ -53,7 +56,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
 }
 
 export default function ServicePageTemplate({
-  title, heroSubtitle, bodyIntro, features, bodyContent, faqItems, relatedServices, icon, images, imageLayout = "scattered"
+  title, heroSubtitle, bodyIntro, features, bodyContent, extraSections, faqItems, relatedServices, icon, images, imageLayout = "scattered"
 }: ServicePageTemplateProps) {
   return (
     <>
@@ -131,7 +134,17 @@ export default function ServicePageTemplate({
 
 
               <Reveal type="up" delay={200}>
-                {bodyContent && <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.8, marginBottom: "40px" }}>{bodyContent}</p>}
+                {bodyContent && <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.8, marginBottom: "24px" }}>{bodyContent}</p>}
+                {extraSections && extraSections.length > 0 && extraSections.map((sec, idx) => (
+                  <div key={idx} style={{ marginBottom: "40px" }}>
+                    <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "14px" }}>{sec.title}</h4>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px" }}>
+                      {sec.items.map((item, i) => (
+                        <span key={i} style={{ fontSize: "0.95rem", color: "#475569", padding: "6px 12px", background: "#F8F9FB", borderRadius: "8px", border: "1px solid #E5E9EF" }}>{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </Reveal>
 
               {/* Scattered-Alt Layout Image 1 */}

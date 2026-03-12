@@ -40,18 +40,18 @@ export default function FAQPage() {
     <>
       <section className="page-hero faq-page-hero">
         <div className="container">
-          <Reveal type="left">
+          <Reveal type="left" delay={0} duration={0.35} rootMargin="0px 0px 60px 0px">
             <div className="page-hero__breadcrumb">
               <Link href="/">Home</Link> <span>/</span>
               <span style={{ color: "#CBD5E1" }}>FAQ</span>
             </div>
           </Reveal>
-          <Reveal type="up" delay={100}>
+          <Reveal type="up" delay={50} duration={0.35} rootMargin="0px 0px 60px 0px">
             <h1 style={{ color: "#fff", marginBottom: "12px" }}>
               Frequently Asked Questions
             </h1>
           </Reveal>
-          <Reveal type="right" delay={200}>
+          <Reveal type="right" delay={100} duration={0.35} rootMargin="0px 0px 60px 0px">
             <p
               style={{
                 color: "#CBD5E1",
@@ -70,13 +70,8 @@ export default function FAQPage() {
 
       <section className="section faq-page-section">
         <div className="container faq-page-container" style={{ maxWidth: "900px" }}>
-          {allFaqCategories.map((cat, index) => (
-            <Reveal
-              key={cat.href}
-              type={index % 2 === 0 ? "left" : "right"}
-              delay={index * 80}
-            >
-              <div className="faq-category-block"
+          {allFaqCategories.map((cat) => (
+              <div key={cat.href} className="faq-category-block"
                 style={{
                   marginBottom: "48px",
                   paddingBottom: "48px",
@@ -120,7 +115,6 @@ export default function FAQPage() {
                 </div>
                 <FAQAccordion items={cat.items} />
               </div>
-            </Reveal>
           ))}
         </div>
       </section>
