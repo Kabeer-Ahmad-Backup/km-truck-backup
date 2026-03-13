@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Wrench, Settings, Truck, Zap, Battery, Wind, Thermometer, AlertTriangle, Shield, Map, CheckCircle, Phone, Star, CreditCard, HeartHandshake } from "lucide-react";
+import { ArrowRight, Wrench, Settings, Truck, Zap, Battery, Wind, Thermometer, AlertTriangle, Shield, Map, CheckCircle, Phone, Star, CreditCard, HeartHandshake, CarFront } from "lucide-react";
 import type { Metadata } from "next";
 import HeroSection from "@/app/components/ui/HeroSection";
 import BookingForm from "@/app/components/ui/BookingForm";
@@ -29,6 +29,7 @@ const services = [
   { icon: <Wind size={24} />, title: "DPF Cleaning & Force Regen", desc: "Certified DPF cleaning and forced regeneration to keep you emissions-compliant.", href: "/dpf", image: "/why_us_banner.jpg" },
   { icon: <Truck size={24} />, title: "Trailer Repair", desc: "Structural repairs, liftgate, door, lighting, and full trailer electrical overhauls.", href: "/trailer-repair", image: "/hero-truck-white.png" },
   { icon: <AlertTriangle size={24} />, title: "24/7 Emergency Roadside", desc: "Mobile roadside assistance anywhere in SC - tires, fuel, jump-starts, and more.", href: "/emergency-roadside-repair", image: "/why_us_banner.jpg" },
+  { icon: <CarFront size={24} />, title: "Towing & Recovery (Columbia, SC)", desc: "Emergency, heavy-duty, semi, flatbed, fuel, tires, jump start, lockout—24/7.", href: "/towing", image: "/why_us_banner.jpg" },
 ];
 
 const trustPillars = [

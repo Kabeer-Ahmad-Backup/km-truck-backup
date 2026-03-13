@@ -280,4 +280,34 @@ export const allFaqCategories: FAQCategory[] = [
       { question: "How long does body repair take?", answer: "Depending on the extent of damage, most body repairs are completed in 1–3 business days." },
     ],
   },
+  {
+    category: "Towing – Emergency & Heavy Duty (Columbia, SC)",
+    href: "/towing/emergency-towing",
+    items: [
+      { question: "Do you offer 24/7 emergency towing in Columbia, SC?", answer: "Yes. Call (803) 393-4907 anytime—we dispatch wreckers for commercial trucks and semis on I-26, I-77, and across the Columbia metro." },
+      { question: "What is heavy-duty towing vs light-duty?", answer: "Heavy-duty uses rotators or heavy wreckers for loaded semis and Class 7–8 trucks. Light-duty covers pickups, vans, and smaller box trucks—see our dedicated pages for each." },
+      { question: "Can you tow my loaded semi without unloading?", answer: "Often yes, when weight and equipment match. Tell dispatch your gross weight and trailer type so we send the right Columbia, SC unit." },
+      { question: "Where can I read more about emergency towing?", answer: "Visit our Emergency Towing page for Columbia-specific response info, or the Towing hub at /towing for all services." },
+    ],
+  },
+  {
+    category: "Towing – Semi, Flatbed & Light Duty",
+    href: "/towing/semi-truck-towing",
+    items: [
+      { question: "Do you tow tractor-trailers in Columbia?", answer: "Yes—dry vans, reefers, flatbeds, winch-outs, and distribution-center pickups. We protect fifth wheels and trailer clearance." },
+      { question: "When should I ask for flatbed towing?", answer: "Low clearance, sensitive cargo, or any time the load must stay level—flatbed avoids hook stress on specialty Columbia moves." },
+      { question: "Is light-duty towing available for fleet vans?", answer: "Yes. Fair pricing for local tows to Columbia repair shops, impound coordination, and clearing busy roads like Garners Ferry or Two Notch." },
+      { question: "How do I choose the right towing service?", answer: "Start at kmtrucktrailer.com/towing—each service has its own page (semi, flatbed, light duty, etc.) with FAQs tailored to that job." },
+    ],
+  },
+  {
+    category: "Towing – Roadside: Fuel, Tires, Jump & Lockout",
+    href: "/towing/fuel-delivery",
+    items: [
+      { question: "Do you deliver diesel if I run empty near Columbia?", answer: "Yes—diesel to your shoulder or lot in Columbia, Lexington, and along I-77. We can help prime if you ran completely dry." },
+      { question: "Can you change a steer tire on I-26?", answer: "Yes—commercial tire change roadside for steer, drive, and trailer with proper torque. Bad rims may need a tow to a Columbia shop." },
+      { question: "Why use heavy-duty jump start instead of a car pack?", answer: "Semis need commercial cranking amps—we test charging after start and flag bad alternators so you’re not stranded twice." },
+      { question: "Do you unlock cabs and trailers without damage?", answer: "Yes—professional lockout tools for Columbia commercial cabs, trailer doors, and toolboxes. Available 24/7 like our other towing services." },
+    ],
+  },
 ];

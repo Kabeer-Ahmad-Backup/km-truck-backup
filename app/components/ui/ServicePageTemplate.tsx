@@ -18,6 +18,7 @@ interface ServicePageTemplateProps {
   features: string[];
   bodyContent?: string;
   extraSections?: ExtraSection[];
+  bodyAfterContent?: React.ReactNode;
   faqItems: FAQItem[];
   relatedServices?: ServiceLink[];
   icon?: React.ReactNode;
@@ -56,7 +57,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
 }
 
 export default function ServicePageTemplate({
-  title, heroSubtitle, bodyIntro, features, bodyContent, extraSections, faqItems, relatedServices, icon, images, imageLayout = "scattered"
+  title, heroSubtitle, bodyIntro, features, bodyContent, extraSections, bodyAfterContent, faqItems, relatedServices, icon, images, imageLayout = "scattered"
 }: ServicePageTemplateProps) {
   return (
     <>
@@ -145,6 +146,7 @@ export default function ServicePageTemplate({
                     </div>
                   </div>
                 ))}
+                {bodyAfterContent}
               </Reveal>
 
               {/* Scattered-Alt Layout Image 1 */}

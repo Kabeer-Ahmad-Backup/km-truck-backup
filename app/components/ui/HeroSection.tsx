@@ -220,7 +220,7 @@ export default function HeroSection() {
             lineHeight: 1.75, marginBottom: "clamp(24px, 4vw, 36px)", maxWidth: "560px", marginLeft: "auto", marginRight: "auto",
             textShadow: "0 1px 8px rgba(0,0,0,0.3)"
           }}>
-            Professional roadside assistance and comprehensive fleet maintenance across South Carolina. We minimize downtime so you can maximize delivery.
+            Professional roadside assistance and comprehensive fleet maintenance across Columbia, South Carolina. We minimize downtime so you can maximize delivery.
           </p>
 
           {/* CTAs - 3D tilt on hover */}

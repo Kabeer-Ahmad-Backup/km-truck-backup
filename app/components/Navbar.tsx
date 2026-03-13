@@ -3,21 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
-
-const serviceLinks = [
-  { label: "DPF Cleaning", href: "/dpf" },
-  { label: "Brakes", href: "/brakes" },
-  { label: "Tires", href: "/tires" },
-  { label: "Battery", href: "/battery" },
-  { label: "Electrical", href: "/electrical" },
-  { label: "Transmission", href: "/transmission" },
-  { label: "Trailer Repair", href: "/trailer-repair" },
-  { label: "Emergency Roadside", href: "/emergency-roadside-repair" },
-  { label: "Engine Diagnostics", href: "/vehicle-engine-diagnostic" },
-  { label: "Steering & Suspension", href: "/steering-and-suspension" },
-  { label: "Semi Truck Repair", href: "/semi-truck-repair" },
-  { label: "Force Regen", href: "/force-regen" },
-];
+import { serviceMenuGroups } from "@/app/components/services-nav-data";
 
 const aboutLinks = [
   { label: "About Us", href: "/abous-us" },
@@ -43,6 +29,8 @@ export default function Navbar() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
+  const [desktopOpenGroup, setDesktopOpenGroup] = useState<string | null>(null);
+  const [mobileOpenGroups, setMobileOpenGroups] = useState<Record<string, boolean>>({});
   const [mobileAboutExpanded, setMobileAboutExpanded] = useState(false);
   const [mobileLocationsExpanded, setMobileLocationsExpanded] = useState(false);
 
@@ -77,7 +65,10 @@ export default function Navbar() {
             <div
               style={{ position: "relative" }}
               onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+              onMouseLeave={() => {
+                setServicesOpen(false);
+                setDesktopOpenGroup(null);
+              }}
             >
               <button
                 className="nav-dropdown-btn"
@@ -88,17 +79,50 @@ export default function Navbar() {
               </button>
               {servicesOpen && (
                 <div className="nav-dropdown-panel nav-dropdown-services">
-                  {serviceLinks.map((s) => (
-                    <Link
-                      key={s.href}
-                      href={s.href}
-                      className="nav-dropdown-item"
-                    >
-                      {s.label}
+                  {serviceMenuGroups.map((group) => {
+                    const open = desktopOpenGroup === group.id;
+                    return (
+                      <div key={group.id} className="nav-services-accordion-item">
+                        <button
+                          type="button"
+                          className="nav-services-accordion-trigger"
+                          data-open={open}
+                          aria-expanded={open}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setDesktopOpenGroup((id) => (id === group.id ? null : group.id));
+                          }}
+                        >
+                          <span>{group.title}</span>
+                          <ChevronDown size={18} />
+                        </button>
+                        <div
+                          className="nav-services-sublinks"
+                          style={{
+                            display: open ? "flex" : "none",
+                            maxHeight: open ? "none" : 0,
+                          }}
+                        >
+                          <Link
+                            href={group.href}
+                            onClick={() => setServicesOpen(false)}
+                            style={{ fontWeight: 700, color: "var(--blue-600)", fontSize: "0.85rem" }}
+                          >
+                            {group.id === "towing" ? "Towing hub" : "All services"} →
+                          </Link>
+                          {group.items.map((s) => (
+                            <Link key={s.href} href={s.href} onClick={() => setServicesOpen(false)}>
+                              {s.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <div className="nav-dropdown-footer" style={{ borderTop: "1px solid var(--gray-100)", marginTop: 8, paddingTop: 12 }}>
+                    <Link href="/services" onClick={() => setServicesOpen(false)}>
+                      → View All Services
                     </Link>
-                  ))}
-                  <div className="nav-dropdown-footer">
-                    <Link href="/services">→ View All Services</Link>
                   </div>
                 </div>
               )}
@@ -213,18 +237,53 @@ export default function Navbar() {
                 <ChevronDown size={20} style={{ transform: mobileServicesExpanded ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }} />
               </span>
             </button>
-            <div className="nav-mobile-expand-content" style={{ maxHeight: mobileServicesExpanded ? "600px" : "0", overflow: "hidden", transition: "max-height 0.25s ease" }}>
-              {serviceLinks.map((s) => (
-                <Link
-                  key={s.href}
-                  href={s.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="nav-mobile-link"
-                >
-                  {s.label}
-                </Link>
-              ))}
-              <Link href="/services" onClick={() => setMobileOpen(false)} className="nav-mobile-link" style={{ fontWeight: 600, color: "var(--blue-600)" }}>
+            <div
+              className="nav-mobile-expand-content"
+              style={{
+                maxHeight: mobileServicesExpanded ? "min(75vh, 2000px)" : "0",
+                overflow: mobileServicesExpanded ? "auto" : "hidden",
+                transition: "max-height 0.3s ease",
+              }}
+            >
+              {serviceMenuGroups.map((group) => {
+                const gOpen = mobileOpenGroups[group.id];
+                return (
+                  <div key={group.id} style={{ borderBottom: "1px solid var(--gray-100)" }}>
+                    <button
+                      type="button"
+                      className="nav-mobile-expand-btn"
+                      style={{ paddingLeft: 12, fontSize: "0.95rem" }}
+                      onClick={() => setMobileOpenGroups((m) => ({ ...m, [group.id]: !m[group.id] }))}
+                      aria-expanded={gOpen}
+                    >
+                      <span>{group.title}</span>
+                      <ChevronDown size={18} style={{ transform: gOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+                    </button>
+                    <div style={{ maxHeight: gOpen ? 800 : 0, overflow: "hidden", transition: "max-height 0.25s ease" }}>
+                      <Link
+                        href={group.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="nav-mobile-link"
+                        style={{ paddingLeft: 20, fontWeight: 600, color: "var(--blue-600)", fontSize: "0.9rem" }}
+                      >
+                        {group.id === "towing" ? "Towing hub" : "Section overview"} →
+                      </Link>
+                      {group.items.map((s) => (
+                        <Link
+                          key={s.href}
+                          href={s.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="nav-mobile-link"
+                          style={{ paddingLeft: 24, fontSize: "0.9rem", fontWeight: 500 }}
+                        >
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+              <Link href="/services" onClick={() => setMobileOpen(false)} className="nav-mobile-link" style={{ fontWeight: 700, color: "var(--blue-600)" }}>
                 → View All Services
               </Link>
             </div>

@@ -12,6 +12,7 @@ const serviceLinks = [
   { label: "Transmission", href: "/transmission" },
   { label: "Trailer Repair", href: "/trailer-repair" },
   { label: "Emergency Roadside", href: "/emergency-roadside-repair" },
+  { label: "Towing (Columbia, SC)", href: "/towing" },
 ];
 
 const companyLinks = [

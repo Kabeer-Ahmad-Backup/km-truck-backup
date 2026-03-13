@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Phone, Wrench, Settings, Truck, Zap, Battery, Wind, Thermometer, AlertTriangle, Shield, CheckCircle, ArrowRight } from "lucide-react";
+import { Phone, Wrench, Settings, Truck, Zap, Battery, Wind, Thermometer, AlertTriangle, Shield, CheckCircle, ArrowRight, CarFront } from "lucide-react";
 import Reveal from "@/app/components/ui/Reveal";
 
 export const metadata: Metadata = {
@@ -28,6 +28,19 @@ const trailerServices = [
   { icon: <Settings size={24} />, title: "Trailer Door Repair", desc: "Roll-up doors, swing doors, hinges, seals, and locking mechanisms.", href: "/trailer-door" },
   { icon: <Wrench size={24} />, title: "Liftgate Repair", desc: "Hydraulic, electrical, and platform liftgate repair for all brands.", href: "/liftgate-repair" },
   { icon: <Zap size={24} />, title: "Trailer Electrical & AC", desc: "Full trailer electrical overhauls, lighting, brake controllers, and AC systems.", href: "/trailer-electrical-a-c-overhaul-services" },
+];
+
+const towingServices = [
+  { icon: <AlertTriangle size={24} />, title: "Emergency Towing", desc: "24/7 emergency towing in Columbia, SC—fast dispatch on I-26, I-77, and metro routes.", href: "/towing/emergency-towing" },
+  { icon: <Truck size={24} />, title: "Heavy Duty Towing", desc: "Rotator and heavy wrecker capacity for loaded semis and equipment in the Midlands.", href: "/towing/heavy-duty-towing" },
+  { icon: <CarFront size={24} />, title: "Light Duty Towing", desc: "Pickups, vans, and light commercial tows across Columbia and Richland County.", href: "/towing/light-duty-towing" },
+  { icon: <Truck size={24} />, title: "Semi Truck Towing", desc: "Tractor-trailer towing with fifth-wheel and trailer protection.", href: "/towing/semi-truck-towing" },
+  { icon: <Truck size={24} />, title: "Flatbed Towing", desc: "Level deck transport when hook tow isn’t right for your Columbia load.", href: "/towing/flatbed-towing" },
+  { icon: <Shield size={24} />, title: "Roadside Assistance", desc: "On-site fixes and triage so you may avoid a tow when possible.", href: "/towing/roadside-assistance" },
+  { icon: <Zap size={24} />, title: "Fuel Delivery", desc: "Diesel delivered to your location—Columbia, SC and I-77 corridor.", href: "/towing/fuel-delivery" },
+  { icon: <Settings size={24} />, title: "Tire Change Service", desc: "Commercial tire change and roadside mounting for steer, drive, trailer.", href: "/towing/tire-change-service" },
+  { icon: <Battery size={24} />, title: "Jump Start Service", desc: "Heavy-duty jump equipment sized for commercial starting loads.", href: "/towing/jump-start-service" },
+  { icon: <Shield size={24} />, title: "Vehicle Lockout Service", desc: "Cab and trailer lockout—professional entry without damage.", href: "/towing/vehicle-lockout-service" },
 ];
 
 const roadsideServices = [
@@ -125,6 +138,7 @@ export default function ServicesPage() {
         <div className="container">
           <ServiceGroup title="Truck Services" services={truckServices} />
           <ServiceGroup title="Trailer Services" services={trailerServices} />
+          <ServiceGroup title="Towing Services" services={towingServices} />
           <ServiceGroup title="Emergency Roadside" services={roadsideServices} />
         </div>
       </section>
