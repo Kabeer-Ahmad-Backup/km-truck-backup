@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Heart } from "lucide-react";
 
 const serviceLinks = [
   { label: "DPF Cleaning", href: "/dpf" },
@@ -12,7 +12,7 @@ const serviceLinks = [
   { label: "Transmission", href: "/transmission" },
   { label: "Trailer Repair", href: "/trailer-repair" },
   { label: "Emergency Roadside", href: "/emergency-roadside-repair" },
-  { label: "Towing (Columbia, SC)", href: "/towing" },
+  { label: "Towing Services", href: "/towing" },
 ];
 
 const companyLinks = [
@@ -118,7 +118,22 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footer-bottom-bar" style={{ borderTop: "1px solid #E5E9EF", padding: "20px 0" }}>
         <div className="container footer-bottom" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-          <p style={{ fontSize: "0.8rem", color: "#9CA3AF", margin: 0 }}>© 2025 KM Truck & Trailer. All rights reserved.</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <p style={{ fontSize: "0.8rem", color: "#9CA3AF", margin: 0 }}>© 2025 KM Truck & Trailer. All rights reserved.</p>
+            <p style={{ fontSize: "0.8rem", color: "#9CA3AF", margin: 0, display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
+              Made by{" "}
+              <a
+                href="https://loftyrankers.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#2563EB", textDecoration: "none", fontWeight: 600 }}
+              >
+                Lofty Rankers
+              </a>{" "}
+              with{" "}
+              <Heart size={14} style={{ color: "#DC2626", flexShrink: 0 }} aria-label="love" />
+            </p>
+          </div>
           <div className="footer-bottom-links" style={{ display: "flex", gap: "20px" }}>
             <Link href="/privacy-policy" style={{ fontSize: "0.8rem", color: "#9CA3AF", textDecoration: "none" }}>Privacy Policy</Link>
             <Link href="/terms-and-conditions" style={{ fontSize: "0.8rem", color: "#9CA3AF", textDecoration: "none" }}>Terms &amp; Conditions</Link>
