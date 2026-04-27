@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
+import { trailerTiresArticleSections } from "@/lib/service-articles/april-2026-seo-pages";
+import { withPageMeta } from "@/lib/site-metadata";
 import ServicePageTemplate from "../components/ui/ServicePageTemplate";
 
-export const metadata: Metadata = {
-  title: "Trailer Tire Repair & Replacement in South Carolina | KM Truck & Trailer",
-  description: "All trailer tire sizes - flat repair, roadside tire change, mounting and balancing. Available 24/7 across South Carolina.",
-};
+export const metadata: Metadata = withPageMeta("/trailer-tires", {
+  title: { absolute: "Trailer Tire Repair & Replacement in South Carolina | KM Truck & Trailer" },
+  description:
+    "KM Truck & Trailer provides expert trailer tire repair and replacement services across South Carolina. Our skilled technicians ensure quick, reliable solutions for tire issues, helping you stay safe on the road with minimal downtime.",
+});
 
 export default function Page() {
   return (
     <ServicePageTemplate
       title="Trailer Tire Repair & Replacement in South Carolina"
-      heroSubtitle="All trailer tire sizes - flat repair, roadside tire change, mounting and balancing. Available 24/7 across South Carolina."
+      heroSubtitle="KM Truck & Trailer provides expert trailer tire repair and replacement services across South Carolina. Our skilled technicians ensure quick, reliable solutions for tire issues, helping you stay safe on the road with minimal downtime."
+      articleSections={trailerTiresArticleSections}
       bodyIntro="Trailer tire blowouts are one of the most common causes of roadside breakdowns. Our mobile tire service is equipped to handle all trailer tire sizes, providing fast flat repair or full replacement right where you are."
       bodyContent="We carry all common trailer tire sizes and can source specialty sizes quickly. Our technicians ensure proper mounting and torque to keep your trailer safe and DOT-compliant."
       extraSections={[

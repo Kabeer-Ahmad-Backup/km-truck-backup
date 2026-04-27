@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
+import { lockoutsSiteArticleSections } from "@/lib/service-articles/april-2026-seo-pages";
+import { withPageMeta } from "@/lib/site-metadata";
 import ServicePageTemplate from "../components/ui/ServicePageTemplate";
 
-export const metadata: Metadata = {
-  title: "Truck & Trailer Lockout Service in South Carolina | KM Truck & Trailer",
-  description: "24/7 cab and trailer lockout service - fast, professional, no damage to your vehicle. Mobile response across SC.",
-};
+export const metadata: Metadata = withPageMeta("/lockouts", {
+  title: { absolute: "Truck & Trailer Lockout Service SC | KM Truck & Trailer" },
+  description:
+    "Get fast truck & trailer lockout service in South Carolina. KM Truck & Trailer offers 24/7 roadside help to unlock vehicles safely and quickly.",
+});
 
 export default function Page() {
   return (
     <ServicePageTemplate
       title="Truck & Trailer Lockout Service in South Carolina"
-      heroSubtitle="24/7 cab and trailer lockout service - fast, professional, no damage to your vehicle. Mobile response across SC."
+      heroSubtitle="Get fast truck & trailer lockout service in South Carolina. KM Truck & Trailer offers 24/7 roadside help to unlock vehicles safely and quickly."
+      articleSections={lockoutsSiteArticleSections}
       bodyIntro="Getting locked out of your cab or cargo trailer can cost valuable hours. Our lockout technicians respond quickly with the proper tools to gain entry without damage to your door, lock, or interior."
       bodyContent="We handle both cab lockouts and trailer lock situations, including padlock assistance. Our no-damage approach ensures your truck leaves in the same condition it was found."
       features={["Cab Lockout Service","Trailer Lockout","No-Damage Entry","24/7 Response","Fast Dispatch","Mobile Service","All Truck Types","Padlock Assistance"]}

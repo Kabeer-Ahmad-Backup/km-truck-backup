@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { towingHubArticleSections } from "@/lib/service-articles/april-2026-seo-pages";
+import { withPageMeta } from "@/lib/site-metadata";
 import ServicePageTemplate from "../components/ui/ServicePageTemplate";
 
-export const metadata: Metadata = {
-  title: "Towing & Roadside Recovery in Columbia, SC | KM Truck & Trailer",
+export const metadata: Metadata = withPageMeta("/towing", {
+  title: { absolute: "Towing & Roadside Recovery in Columbia, SC | KM Truck & Trailer" },
   description:
-    "Emergency towing, heavy-duty, semi, flatbed, fuel delivery, tire change, jump start, lockout—separate services in Columbia, SC. 24/7.",
-};
+    "KM Truck & Trailer provides fast and reliable towing and roadside recovery services in Columbia, SC. Trust our expert team for emergency assistance, anywhere, anytime.",
+});
 
 const links = [
   { href: "/towing/emergency-towing", label: "Emergency Towing" },
@@ -26,9 +28,10 @@ export default function TowingHubPage() {
   return (
     <ServicePageTemplate
       title="Towing & Roadside Recovery in Columbia, SC"
-      heroSubtitle="Choose a service below—each has its own page with details for Columbia, SC and the Midlands. 24/7 dispatch: (803) 393-4907."
+      heroSubtitle="KM Truck & Trailer provides fast and reliable towing and roadside recovery services in Columbia, SC. Trust our expert team for emergency assistance, anywhere, anytime."
+      articleSections={towingHubArticleSections}
       bodyIntro="Breakdowns don’t wait for business hours. K&M Truck & Trailer Repair provides towing and roadside recovery tailored to commercial trucks and fleets in Columbia, SC—from quick jump-starts and fuel drops to full heavy-duty tows on I-26, I-77, and I-20."
-      bodyContent="Open any service for full information. Same dispatch number for every service—we route the right equipment for what you need."
+      bodyContent="Choose a service below—each page has full details for Columbia, SC and the Midlands. Open any service for full information. Same dispatch for every need: (803) 393-4907—we route the right equipment for your situation."
       bodyAfterContent={
         <div style={{ marginTop: "24px", marginBottom: "32px" }}>
           <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#111827", marginBottom: "16px" }}>

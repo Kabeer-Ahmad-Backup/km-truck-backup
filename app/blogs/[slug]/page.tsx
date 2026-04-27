@@ -2,9 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import { getPostBySlug, getAllSlugs, type ContentBlock } from "../blog-data";
+import { getPostBySlug, getAllSlugs } from "../get-blog-post";
+import type { ContentBlock } from "../blog-types";
 import type { Metadata } from "next";
 import Reveal from "@/app/components/ui/Reveal";
+import { linkifyBlogText } from "../blog-linkify";
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
@@ -52,18 +54,18 @@ function BlogContent({
         {introBlocks.map((block, i) =>
           block.type === "p" ? (
             <Reveal key={i} type="up" delay={i * 60}>
-              <p className="blog-lead-p">{block.text}</p>
+              <p className="blog-lead-p">{linkifyBlogText(block.text)}</p>
             </Reveal>
           ) : null
         )}
       </div>
 
-      {/* Featured image — after intro, with spacing */}
+      {/* In-article image after intro — April 2026 `_1` assets when set; else same as card hero */}
       <Reveal type="up" delay={120}>
         <div className="blog-featured-image">
           <Image
-            src={post.image}
-            alt={post.imageAlt}
+            src={post.contentImage ?? post.image}
+            alt={post.contentImageAlt ?? post.imageAlt}
             fill
             priority
             sizes="(max-width: 768px) 100vw, 720px"
@@ -86,12 +88,12 @@ function BlogContent({
 
 function Block({ node }: { node: ContentBlock }) {
   if (node.type === "h2") {
-    return <h2 className="blog-h2">{node.text}</h2>;
+    return <h2 className="blog-h2">{linkifyBlogText(node.text)}</h2>;
   }
   if (node.type === "h3") {
-    return <h3 className="blog-h3">{node.text}</h3>;
+    return <h3 className="blog-h3">{linkifyBlogText(node.text)}</h3>;
   }
-  return <p className="blog-p">{node.text}</p>;
+  return <p className="blog-p">{linkifyBlogText(node.text)}</p>;
 }
 
 export default async function BlogPostPage({ params }: Props) {

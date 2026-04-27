@@ -1,5 +1,7 @@
 /** Shared copy for towing subpages (Columbia, SC). */
 
+import { towingArticlesBySlug } from "@/lib/service-articles/april-2026-seo-pages";
+
 export interface TowingFaqItem {
   question: string;
   answer: string;
@@ -9,7 +11,7 @@ export const towingPages = {
   "emergency-towing": {
     title: "Emergency Towing in Columbia, SC",
     heroSubtitle:
-      "24/7 emergency towing on I-26, I-77, and across the Columbia metro—fast dispatch for commercial trucks and semis.",
+      "KM Truck & Trailer offers 24/7 emergency towing services in Columbia, SC. Whether it's a breakdown or an accident, our experienced team is ready to assist you quickly and efficiently.",
     bodyIntro:
       "When you break down on I-26, I-77, or anywhere in the Columbia, SC metro area, you need a tow that shows up fast—not hours later.",
     bodyContent:
@@ -28,11 +30,12 @@ export const towingPages = {
       { question: "How fast can a wrecker get to I-77 near Columbia?", answer: "ETA depends on traffic and which unit is closest. Call (803) 393-4907—dispatch quotes an estimated arrival and sends the right truck for your weight class." },
       { question: "Do you tow at night and on weekends?", answer: "Yes. Emergency towing is 24/7, including nights, weekends, and holidays for Columbia, SC and the Midlands." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["emergency-towing"],
   },
   "heavy-duty-towing": {
     title: "Heavy Duty Towing in Columbia, SC",
     heroSubtitle:
-      "Rotator and heavy wrecker towing for loaded semis, Class 7–8 trucks, and equipment in the Midlands.",
+      "Rotator and heavy-wrecker towing for loaded semis, Class 7–8 trucks, and equipment in the Columbia, SC Midlands.",
     bodyIntro:
       "Heavy-duty towing in Columbia, SC requires the right equipment and operators who understand air brakes, fifth wheels, and DOT rules.",
     bodyContent:
@@ -51,11 +54,12 @@ export const towingPages = {
       { question: "Is heavy-duty towing more expensive?", answer: "Rates reflect equipment type, distance, and weight class. We’re upfront about pricing before we roll so fleets near Columbia can budget clearly." },
       { question: "Can you tow without unloading my trailer?", answer: "Often yes, when weight and securement allow. Dispatch needs your loaded weight and cargo type to send the correct unit." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["heavy-duty-towing"],
   },
   "light-duty-towing": {
     title: "Light Duty Towing in Columbia, SC",
     heroSubtitle:
-      "Pickups, vans, box trucks, and light commercial towing—Columbia and Richland County.",
+      "KM Truck & Trailer provides reliable light-duty towing services in Columbia, SC. From cars to small trucks, our experienced team ensures a safe and efficient towing experience whenever you need it.",
     bodyIntro:
       "Pickup trucks, vans, box trucks, and light commercial vehicles still need reliable towing in Columbia, SC—especially when they’re part of your fleet.",
     bodyContent:
@@ -74,11 +78,12 @@ export const towingPages = {
       { question: "Can you tow from Garners Ferry or Two Notch?", answer: "Yes. We regularly run light-duty tows on major Columbia corridors and neighborhoods—same dispatch line (803) 393-4907." },
       { question: "Do you coordinate with impound or police?", answer: "We can work with law enforcement or lot requirements when you need a tow from an impound or accident scene—call with case details." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["light-duty-towing"],
   },
   "semi-truck-towing": {
     title: "Semi Truck Towing in Columbia, SC",
     heroSubtitle:
-      "Tractor-trailer towing with fifth-wheel and trailer protection—Columbia, I-20, distribution centers.",
+      "KM Truck & Trailer offers professional semi truck towing services in Columbia, SC. Our expert team is available 24/7 to handle heavy-duty towing with speed and safety.",
     bodyIntro:
       "Semi truck towing around Columbia, SC is what we do every week: tractors, dry vans, reefers, and flatbeds that won’t start, have brake failures, or need a winch-out.",
     bodyContent:
@@ -97,11 +102,12 @@ export const towingPages = {
       { question: "Can you winch a stuck semi?", answer: "Yes, when soil and angles allow. Describe mud, grade, and whether trailer is loaded so we send winch-capable equipment." },
       { question: "Will my trailer be protected during semi tow?", answer: "We use procedures that protect fifth wheel, landing gear, and trailer height clearances—our operators are trained for Columbia-area semis." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["semi-truck-towing"],
   },
   "flatbed-towing": {
     title: "Flatbed Towing in Columbia, SC",
     heroSubtitle:
-      "Level-deck transport for sensitive loads, low clearance, and equipment that can’t be dollied.",
+      "Level-deck transport for low clearance, AWD, and equipment that can’t be dollied—protected moves across Columbia, SC and the region.",
     bodyIntro:
       "When a standard hook isn’t appropriate—low clearance, all-wheel drive, or a vehicle that must stay level—flatbed towing is the answer.",
     bodyContent:
@@ -120,11 +126,12 @@ export const towingPages = {
       { question: "How far can you flatbed from Columbia?", answer: "Regional hauls to shops or yards are common—distance affects rate; ask dispatch for mileage pricing." },
       { question: "Is flatbed slower to schedule?", answer: "Flatbed availability can vary by time of day. Call early for fastest dispatch—we’ll tell you honest ETAs." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["flatbed-towing"],
   },
   "roadside-assistance": {
     title: "Roadside Assistance in Columbia, SC",
     heroSubtitle:
-      "On-site repairs and triage—air leaks, hoses, belts, diagnostics—so you may avoid a full tow.",
+      "On-site repairs and triage—air leaks, hoses, belts, diagnostics—so you may avoid a full tow in Columbia, SC.",
     bodyIntro:
       "Beyond towing, our roadside assistance in Columbia, SC covers the fixes that keep you rolling without a full tow.",
     bodyContent:
@@ -143,11 +150,12 @@ export const towingPages = {
       { question: "Do fleets get priority roadside?", answer: "We work hard for all commercial callers—fleets with account setups get streamlined dispatch; ask about Columbia fleet options." },
       { question: "Is roadside assistance the same as emergency repair?", answer: "Roadside is broader: quick fixes plus tow if needed. Emergency repair pages focus on mechanical repair—both start with (803) 393-4907." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["roadside-assistance"],
   },
   "fuel-delivery": {
-    title: "Fuel Delivery in Columbia, SC",
+    title: "24/7 Fuel Delivery in Columbia, SC",
     heroSubtitle:
-      "Diesel delivered to your semi or commercial truck—Columbia, Lexington, I-77 corridor.",
+      "Fast 24/7 fuel delivery in Columbia, SC by KM Truck & Trailer. Quick response, diesel and gas delivery for trucks and cars when available. Call (803) 393-4907 for help.",
     bodyIntro:
       "Out of diesel on the shoulder near Columbia, SC? We deliver fuel to your location—diesel for semis and commercial trucks.",
     bodyContent:
@@ -166,11 +174,12 @@ export const towingPages = {
       { question: "Do I need to prime after you add diesel?", answer: "If you ran completely dry, priming may be needed—we can assist so you’re not stuck cranking." },
       { question: "Is spill risk handled safely?", answer: "We use proper containers and spill awareness—tell us if you’re on a slope or tight shoulder near Columbia." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["fuel-delivery"],
   },
   "tire-change-service": {
-    title: "Tire Change Service in Columbia, SC",
+    title: "24/7 Tire Change Service in Columbia, SC",
     heroSubtitle:
-      "Commercial tire change roadside—steer, drive, trailer—proper torque and DOT-ready.",
+      "Need a fast tire change in Columbia, SC? KM Truck & Trailer offers 24/7 roadside tire service for trucks and cars. Quick, reliable help when you need it.",
     bodyIntro:
       "Commercial tire change service in Columbia, SC means the right size, proper torque, and DOT-ready wheels.",
     bodyContent:
@@ -189,11 +198,12 @@ export const towingPages = {
       { question: "What if the rim is bent?", answer: "We’ll inspect—severe rim damage may require tow to a Columbia shop for wheel replacement before safe roll." },
       { question: "Do you torque lug nuts to spec?", answer: "Yes. DOT-minded torque and pattern matter—we treat commercial wheels seriously." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["tire-change-service"],
   },
   "jump-start-service": {
-    title: "Jump Start Service in Columbia, SC",
+    title: "24/7 Jump Start Service in Columbia, SC",
     heroSubtitle:
-      "Heavy-duty jump equipment for commercial starting loads—safe for alternator and electrical.",
+      "Dead battery? KM Truck & Trailer offers fast 24/7 jump start service in Columbia, SC for cars and trucks. Quick roadside help when you need it.",
     bodyIntro:
       "Dead batteries on a big rig need more than a passenger jump pack. In Columbia, SC, we bring heavy-duty jump equipment sized for commercial starting loads.",
     bodyContent:
@@ -212,11 +222,12 @@ export const towingPages = {
       { question: "Do you replace batteries roadside?", answer: "We can advise and often source replacement—ask dispatch if you want battery service after the jump in the Midlands." },
       { question: "How fast for jump start in Columbia?", answer: "Same dispatch queue as other roadside—call (803) 393-4907 for ETA to your parking lot or shoulder." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["jump-start-service"],
   },
   "vehicle-lockout-service": {
     title: "Vehicle Lockout Service in Columbia, SC",
     heroSubtitle:
-      "Cab and trailer lockout—professional tools, no damage to doors or seals.",
+      "Fast and reliable vehicle lockout service in Columbia, SC. KM Truck & Trailer provides 24/7 emergency help to unlock your vehicle quickly and safely.",
     bodyIntro:
       "Locked out of your cab or trailer in Columbia, SC? Our lockout service uses professional tools and techniques to regain entry without damage.",
     bodyContent:
@@ -235,6 +246,7 @@ export const towingPages = {
       { question: "How fast is lockout service in Columbia?", answer: "We target the same 45–60 minute window as other SC roadside when traffic allows—nights included." },
       { question: "What if my key fob died inside the sleeper?", answer: "We still gain entry professionally—then you can retrieve the fob or arrange a spare. Call from any Columbia shipper or rest area." },
     ] satisfies TowingFaqItem[],
+    articleSections: towingArticlesBySlug["vehicle-lockout-service"],
   },
 } as const;
 

@@ -9,6 +9,7 @@ export default function TowingServicePage({ slug }: { slug: TowingSlug }) {
       heroSubtitle={p.heroSubtitle}
       bodyIntro={p.bodyIntro}
       bodyContent={p.bodyContent}
+      articleSections={p.articleSections}
       features={[...p.features]}
       faqItems={[...p.faqItems]}
       relatedServices={[

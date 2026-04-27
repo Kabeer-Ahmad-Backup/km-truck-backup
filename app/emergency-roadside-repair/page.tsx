@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
+import { emergencyRoadsideArticleSections } from "@/lib/service-articles/april-2026-seo-pages";
+import { withPageMeta } from "@/lib/site-metadata";
 import ServicePageTemplate from "../components/ui/ServicePageTemplate";
 
-export const metadata: Metadata = {
-  title: "Fast Emergency Truck Roadside Repair in Columbia, SC | KM Truck & Trailer",
-  description: "24/7 emergency mobile repair for trucks and trailers across South Carolina. We come to you - any weather, any time.",
-};
+export const metadata: Metadata = withPageMeta("/emergency-roadside-repair", {
+  title: { absolute: "Fast Emergency Truck Roadside Repair | Columbia, SC | KM Truck & Trailer" },
+  description:
+    "Get fast emergency truck roadside repair in Columbia, SC. KM Truck & Trailer provides 24/7 mobile assistance for breakdowns, towing and repairs available.",
+});
 
 export default function Page() {
   return (
     <ServicePageTemplate
       title="Fast Emergency Truck Roadside Repair in Columbia, SC"
-      heroSubtitle="24/7 emergency mobile repair for trucks and trailers across South Carolina. We come to you - any weather, any time."
+      heroSubtitle="Get fast emergency truck roadside repair in Columbia, SC. KM Truck & Trailer provides 24/7 mobile assistance for breakdowns, towing and repairs available."
+      articleSections={emergencyRoadsideArticleSections}
       bodyIntro="A flat or fault can stop your trip and cost time and money. Our emergency truck and trailer repair team in Columbia, SC keeps you moving. We fix tires, brakes, air leaks, and more on-site - quickly and anytime."
       bodyContent="From wheel hubs to air lines, our skilled technicians handle rigs and trailers at your location in any weather, all year round. You stay on track with safe and reliable roadside repairs."
       features={["Flat Tire Repair","Brake Repair","Air Line Leaks","Jump-Start Service","Fuel Delivery","Wheel Hub Repair","24/7 Any Weather","Fast Dispatch"]}

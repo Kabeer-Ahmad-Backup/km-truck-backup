@@ -26,6 +26,10 @@ function useInView(threshold = 0.15) {
   return { ref, inView };
 }
 
+const ABOUT_HERO_TITLE = "Truck & Trailer Repair in South Carolina";
+const ABOUT_HERO_SUB =
+  "Get fast 24/7 truck & trailer repair in South Carolina. KM Truck & Trailer provides emergency roadside service for breakdowns, towing and repairs.";
+
 /* ─────────── Animated Counter ─────────── */
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const { ref, inView } = useInView(0.5);
@@ -168,9 +172,16 @@ export default function AboutPage() {
               </span>
             </div>
 
-            <h1 className="anim-fadeUp" style={{ animationDelay: "0.22s", color: "#fff", marginBottom: "16px", lineHeight: 1.08, fontSize: "clamp(2.4rem,5.5vw,3.8rem)", fontWeight: 900, letterSpacing: "-0.02em" }}>
-              Trusted Truck &amp; Trailer<br />Repair Since 2013
+            <h1 className="anim-fadeUp" style={{ animationDelay: "0.22s", color: "#fff", marginBottom: "16px", lineHeight: 1.08, fontSize: "clamp(2.1rem,5.5vw,3.2rem)", fontWeight: 900, letterSpacing: "-0.02em" }}>
+              {ABOUT_HERO_TITLE}
             </h1>
+
+            <p
+              className="anim-fadeUp"
+              style={{ animationDelay: "0.28s", color: "#CBD5E1", maxWidth: "640px", lineHeight: 1.65, fontSize: "1.05rem", marginBottom: "20px" }}
+            >
+              {ABOUT_HERO_SUB}
+            </p>
 
             <div className="anim-fadeUp" style={{ animationDelay: "0.36s", display: "flex", gap: "20px", marginBottom: "30px", flexWrap: "wrap" }}>
               {["Expert Technicians", "24/7 Assistance"].map((b) => (

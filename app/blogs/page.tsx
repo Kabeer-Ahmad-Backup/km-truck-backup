@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Reveal from "@/app/components/ui/Reveal";
-import { blogPosts } from "./blog-data";
+import { blogPostsForList } from "./blog-data";
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
@@ -58,7 +58,7 @@ export default function BlogsPage() {
               margin: "0 auto",
             }}
           >
-            {blogPosts.map((post, index) => (
+            {blogPostsForList.map((post, index) => (
               <Reveal
                 key={post.slug}
                 type={index % 2 === 0 ? "left" : "right"}

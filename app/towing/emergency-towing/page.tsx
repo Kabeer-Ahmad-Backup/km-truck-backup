@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { withPageMeta } from "@/lib/site-metadata";
 import TowingServicePage from "../TowingServicePage";
 
-export const metadata: Metadata = {
-  title: "Emergency Towing Columbia, SC | KM Truck & Trailer",
+export const metadata: Metadata = withPageMeta("/towing/emergency-towing", {
+  title: { absolute: "Emergency Towing Columbia, SC | KM Truck & Trailer" },
   description:
-    "24/7 emergency towing on I-26, I-77, Columbia metro. Commercial trucks & semis. Call (803) 393-4907.",
-};
+    "KM Truck & Trailer offers 24/7 emergency towing services in Columbia, SC. Whether it's a breakdown or an accident, our experienced team is ready to assist you quickly and efficiently.",
+});
 
 export default function Page() {
   return <TowingServicePage slug="emergency-towing" />;

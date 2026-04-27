@@ -1833,6 +1833,15 @@ img {
 .blog-p:last-child {
   margin-bottom: 0;
 }
+.blog-post .blog-inline-link {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.blog-post .blog-inline-link:hover {
+  color: #1d4ed8;
+}
 .blog-footer-cta {
   margin-top: 56px;
   padding-top: 40px;

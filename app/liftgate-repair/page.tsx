@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
+import { liftgateArticleSections } from "@/lib/service-articles/april-2026-seo-pages";
+import { withPageMeta } from "@/lib/site-metadata";
 import ServicePageTemplate from "../components/ui/ServicePageTemplate";
 
-export const metadata: Metadata = {
-  title: "Liftgate Repair & Maintenance in South Carolina | KM Truck & Trailer",
-  description: "Hydraulic, electrical, and platform liftgate repair for all brands. Keep your liftgate safe and operational.",
-};
+export const metadata: Metadata = withPageMeta("/liftgate-repair", {
+  title: { absolute: "Liftgate Repair & Maintenance in SC | KM Truck & Trailer" },
+  description:
+    "KM Truck & Trailer provides professional liftgate repair and maintenance services throughout South Carolina. Count on our skilled technicians for quick, reliable, and affordable solutions.",
+});
 
 export default function Page() {
   return (
     <ServicePageTemplate
-      title="Liftgate Repair & Maintenance in South Carolina"
-      heroSubtitle="Hydraulic, electrical, and platform liftgate repair for all brands. Keep your liftgate safe and operational."
+      title="Liftgate Repair & Maintenance in SC"
+      heroSubtitle="KM Truck & Trailer provides professional liftgate repair and maintenance services throughout South Carolina. Count on our skilled technicians for quick, reliable, and affordable solutions."
+      articleSections={liftgateArticleSections}
       bodyIntro="A malfunctioning liftgate can bring your delivery operation to a standstill. Our technicians repair hydraulic systems, electrical components, platform mechanisms, and safety features on all major liftgate brands."
       bodyContent="We service Maxon, Waltco, Anthony, Tommy Gate, and other major liftgate brands. Safety is our priority - every liftgate repair includes a full safety inspection and weight capacity verification."
       features={["Hydraulic Repair","Electrical Service","Platform Repair","Safety Inspection","All Major Brands","Weight Capacity Check","Control Repair","Mobile Service"]}
